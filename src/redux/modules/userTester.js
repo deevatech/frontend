@@ -66,17 +66,20 @@ export const asyncFetchTestById = testId => {
   }
 }
 
-export const asyncSubmitCode = code => {
+export const asyncSubmitCode = input => {
+  const postBody = {
+    code: input
+  }
+
   return dispatch => {
     return new Promise((resolve) => {
       fetch("http://swarm1.weperk.com/tests/1/submit", {
         method: 'POST',
         headers: {
-          'Content-Type': 'application/json'
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
         },
-        body: {
-          code: code
-        }
+        body: JSON.stringify(postBody)
       }).then(response => {
       // fetch("http://www.mocky.io/v2/57074bb4110000ab14e94598").then(response => {
         return response.json()
