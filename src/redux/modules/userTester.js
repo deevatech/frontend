@@ -78,11 +78,9 @@ export const asyncSubmitCode = code => {
           code: code
         }
       }).then(response => {
-        debugger
       // fetch("http://www.mocky.io/v2/57074bb4110000ab14e94598").then(response => {
         return response.json()
       }).then(value => {
-        debugger
         dispatch(receiveTestResults(value))
         resolve()
       }).catch(error => {
