@@ -4,20 +4,11 @@ import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 
 const SpecList = props => {
-  const renderSpecs = specs => {
-
-    if (specs && specs.length) {
-      return (
-        <li><Spec spec={specs[0]} /></li>
-      )
-    }
-
-    return
-  }
-
   return (
     <ul>
-      {renderSpecs(props.specs)}
+      {props.specs.map( spec => {
+        return <li><Spec spec={spec} /></li>
+      })}
     </ul>
   )
 
