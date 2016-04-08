@@ -19,14 +19,14 @@ const TestInterface = (props) => {
   }
 
   return (
-    <div className="problem-window">
+    <div className="problem-window" style={{float: 'left'}}>
       <AceEditor
         mode="ruby"
         theme="monokai"
         tabSize={2}
         fontSize={18}
+        width={900}
         name={editorName}
-        width="1200px"
         highlightActiveLine={true}
         value={props.inputText}
         editorProps={{$blockScrolling: true}}

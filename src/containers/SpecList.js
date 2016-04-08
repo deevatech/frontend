@@ -5,11 +5,13 @@ import { bindActionCreators } from 'redux'
 
 const SpecList = props => {
   return (
+    <div>
     <ul>
       {props.specs.map( spec => {
         return <li><Spec spec={spec} /></li>
       })}
     </ul>
+    </div>
   )
 
 }
