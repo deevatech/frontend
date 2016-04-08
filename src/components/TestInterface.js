@@ -24,7 +24,9 @@ const TestInterface = (props) => {
         mode="ruby"
         theme="monokai"
         tabSize={2}
+        fontSize={18}
         name={editorName}
+        width="1200px"
         highlightActiveLine={true}
         value={props.inputText}
         editorProps={{$blockScrolling: true}}
