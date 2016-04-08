@@ -19,7 +19,7 @@ export const TIME_UP = 'TIME_UP'
 // DOUBLE NOTE: there is currently a bug with babel-eslint where a `space-infix-ops` error is
 // incorrectly thrown when using arrow functions, hence the oddity.
 
-export function receiveTest (testData, testId: number): Action {
+export function receiveTest (testData: Object, testId: number): Action {
   return {
     type: RECEIVE_TEST,
     payload: testData,
@@ -34,7 +34,7 @@ export function submitCodeToTest (code: string = ''): Action {
   }
 }
 
-export function receiveTestResults (results) {
+export function receiveTestResults (results: Object): Action {
   return {
     type: RECEIVE_TEST_RESULTS,
     results: results
@@ -47,9 +47,9 @@ export const actions = {
   receiveTestResults
 }
 
-export const asyncFetchTestById = (testId) => {
-  return (dispatch) => {
-    return new Promise((resolve) => {
+export const asyncFetchTestById = (testId: number): Function => {
+  return (dispatch: function): Promise => {
+    return new Promise((resolve: function) => {
       fetch('http://swarm1.weperk.com/tests/' + testId).then((response) => {
         return response.json()
       }).then((value) => {
@@ -63,13 +63,13 @@ export const asyncFetchTestById = (testId) => {
   }
 }
 
-export const asyncSubmitCode = (input, testId) => {
+export const asyncSubmitCode = (input: string, testId: string): Function => {
   const postBody = {
     code: input
   }
 
-  return (dispatch) => {
-    return new Promise((resolve) => {
+  return (dispatch: function): Promise => {
+    return new Promise((resolve: function) => {
       fetch('http://swarm1.weperk.com/tests/' + testId + '/submit', {
         method: 'POST',
         headers: {
@@ -94,17 +94,17 @@ export const asyncSubmitCode = (input, testId) => {
 // Action Handlers
 // ------------------------------------
 const ACTION_HANDLERS = {
-  [RECEIVE_TEST]: (state: object, action: object): Object => {
+  [RECEIVE_TEST]: (state: Object, action: Object): Object => {
     return Object.assign({}, state,
       Object.assign({}, state.editorContent, action.payload)
     )
   },
-  [SUBMIT_CODE_TO_TEST]: (state: object, action: {payload: object}): object => {
+  [SUBMIT_CODE_TO_TEST]: (state: Object, action: {payload: Object}): Object => {
     return Object.assign({}, state,
       Object.assign({}, state.editorContent, action.payload)
     )
   },
-  [RECEIVE_TEST_RESULTS]: (state: object, action: object): object => {
+  [RECEIVE_TEST_RESULTS]: (state: Object, action: Object): Object => {
     return Object.assign({}, state, {
       specs: action.results.output.output.examples
     })
@@ -125,7 +125,7 @@ const initialState = {
   specs: []
 }
 
-export default function testCodeReducer (state: object = initialState, action: Action): Object {
+export default function testCodeReducer (state: Object = initialState, action: Action): Object {
   const handler = ACTION_HANDLERS[action.type]
 
   return handler ? handler(state, action) : state
