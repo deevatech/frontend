@@ -12,7 +12,7 @@ const Spec = props => {
   return (
     <div className={color(props.spec.status)}>
       <h3>{props.spec.description}</h3>
-      <p>{props.spec.full_description}</p>
+      <pre>{props.spec.full_description}</pre>
       <p>Status: {props.spec.status}</p>
     </div>
   )

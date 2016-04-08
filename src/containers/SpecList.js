@@ -15,11 +15,6 @@ const SpecList = props => {
 }
 
 const mapStateToProps = state => {
-  // return ({
-  //   title: state.userTester.title,
-  //   description: state.userTester.description,
-  //   inputText: state.userTester.source
-  // })
   return({
     specs: state.userTester.specs
   })
