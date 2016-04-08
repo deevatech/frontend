@@ -12,10 +12,9 @@ export class UserTest extends React.Component {
 
   render () {
     return (
-      <div className="testContainer">
-        <ProblemDescription metaData={this.props.metaData} />
-        <SpecList specs={this.props.specs} />
-        <TestInterface skeletonText={this.props.skeletonText} />
+      <div className="test-interface">
+        <UserProblem />
+        <SpecList />
       </div>
     )
   }

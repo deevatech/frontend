@@ -32,7 +32,7 @@ export const actions = {
 // Action Handlers
 // ------------------------------------
 const ACTION_HANDLERS = {
-  [SUBMIT_CODE_TO_TEST]: (state: string, action: {payload: string}): string => action.payload
+  [SUBMIT_CODE_TO_TEST]: (state: string, action: {payload: string}): string => action.payload,
 }
 
 // ------------------------------------
