@@ -1,30 +1,37 @@
 import React from 'react'
 import { render } from 'react-dom';
-import brace from 'brace';
+import { connect } from 'react-redux'
+import ace from 'brace';
 import AceEditor from 'react-ace';
-
 import 'brace/mode/ruby';
 import 'brace/theme/monokai';
 
-type Props = {
+import { asyncSubmitCode } from '../redux/modules/userTester'
 
-};
-export class TestInterface extends React.Component {
-  props: Props;
+const TestInterface = ({ inputText, dispatch}) => {
+  const editorName = "test-input-area"
 
-  render () {
-    return (
+  const onClick = () => {
+    const editor = ace.edit(editorName)
+    const source = editor.getSession().getValue()
+    dispatch(asyncSubmitCode(source))
+  }
+
+  return (
+    <div className="problem-window">
       <AceEditor
         mode="ruby"
         theme="monokai"
         tabSize={2}
-        name="ace-editor"
-        highlightActiveLine="true"
+        name={editorName}
+        highlightActiveLine={true}
+        value={inputText}
         editorProps={{$blockScrolling: true}}
       />
-    )
-  }
+      <button onClick={onClick}>Submit</button>
+    </div>
+  )
 }
 
-export default TestInterface
+export default connect()(TestInterface)
 

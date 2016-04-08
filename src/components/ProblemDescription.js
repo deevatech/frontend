@@ -1,20 +1,12 @@
 import React from 'react'
 
-type Props = {
-
-};
-export class ProblemDescription extends React.Component {
-  props: Props;
-
-  render () {
-    return (
-      <div className="problem-metadata">
-        <h1>Title</h1>
-        <p>description</p>
-      </div>
-    )
-  }
+const ProblemDescription = props => {
+  return (
+    <div className="problem-metadata">
+      <h1>{props.title}</h1>
+      <p>{props.description}</p>
+    </div>
+  )
 }
 
 export default ProblemDescription
-

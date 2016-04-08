@@ -4,6 +4,9 @@ import { connect } from 'react-redux'
 import { submitCodeToTest } from '../../redux/modules/userTester'
 import classes from './UserTestView.scss'
 
+import UserProblem from '../../containers/UserProblem'
+import SpecList from '../../containers/SpecList'
+
 type Props = {
 
 };
@@ -13,15 +16,20 @@ export class UserTest extends React.Component {
   render () {
     return (
       <div className="test-interface">
-        <UserProblem />
-        <SpecList />
+        <UserProblem
+          editorText={this.props.code}
+        />
+        <SpecList
+          specs={this.props.specs}
+        />
       </div>
     )
   }
 }
 
 const mapStateToProps = (state) => ({
-  code: state.inputtedCode
+  code: state.editorCode,
+  specs: state.specs
 })
 
 export default connect((mapStateToProps), {

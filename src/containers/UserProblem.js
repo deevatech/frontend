@@ -2,11 +2,26 @@ import React, { PropTypes } from 'react'
 import ProblemDescription from '../components/ProblemDescription'
 import TestInterface from '../components/TestInterface'
 
-export default class UserProblem extends React.Component {
-  render() {
+import { connect } from 'react-redux'
+import { bindActionCreators } from 'redux'
+
+const UserProblem = props => {
+  return (
     <div>
-      <ProblemDescription title={this.props.metaData.title} description={this.props.metaData.description} />
-      <TestInterface skeletonText={this.props.skeletonText} />
+      <ProblemDescription title={props.title} description={props.description} />
+      <TestInterface inputText={props.inputText} />
     </div>
-  }
+  )
 }
+
+const mapStateToProps = state => {
+  return ({
+    title: state.userTester.title,
+    description: state.userTester.description,
+    inputText: state.userTester.source
+  })
+}
+
+export default connect(
+  mapStateToProps
+)(UserProblem)

@@ -1,0 +1,8 @@
+{
+  "id": 1,
+  "title": "Bowling",
+  "description": "Bowling Problem",
+  "language": "ruby",
+  "source": "class Solution\n  attr_reader :score\n\n  def initialize\n    @score = 0\n  end\n\n  def hit(num)\n    @score += num\n  end\nend",
+  "spec": "require 'solution'\n\nRSpec.describe Solution, '#score' do\n  context 'with no strikes or spares' do\n    it 'sums the pin count for each roll' do\n      bowling = Solution.new\n      20.times { bowling.hit(4) }\n      expect(bowling.score).to eq 80\n    end\n  end\nend"
+}
