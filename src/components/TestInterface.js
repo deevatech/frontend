@@ -1,5 +1,4 @@
-import React from 'react'
-import { render } from 'react-dom'
+import React, {PropTypes} from 'react'
 import { connect } from 'react-redux'
 import ace from 'brace'
 import AceEditor from 'react-ace'
@@ -25,7 +24,7 @@ const TestInterface = (props) => {
         theme='monokai'
         tabSize={2}
         fontSize={18}
-        width={900}
+        width='900px'
         name={editorName}
         highlightActiveLine
         value={props.inputText}
@@ -34,6 +33,11 @@ const TestInterface = (props) => {
       <button onClick={onClick}>Submit</button>
     </div>
   )
+}
+
+TestInterface.propTypes = {
+  dispatch: PropTypes.function.isRequired,
+  inputText: PropTypes.string.isRequired
 }
 
 export default connect()(TestInterface)

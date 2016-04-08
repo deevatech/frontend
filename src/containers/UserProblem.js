@@ -3,9 +3,8 @@ import ProblemDescription from '../components/ProblemDescription'
 import TestInterface from '../components/TestInterface'
 
 import { connect } from 'react-redux'
-import { bindActionCreators } from 'redux'
 
-const UserProblem = props => {
+const UserProblem = (props) => {
   return (
     <div>
       <ProblemDescription title={props.title} description={props.description} />
@@ -14,7 +13,13 @@ const UserProblem = props => {
   )
 }
 
-const mapStateToProps = state => {
+UserProblem.propTypes = {
+  title: PropTypes.string.isRequired,
+  description: PropTypes.string.isRequired,
+  inputText: PropTypes.string.isRequired
+}
+
+const mapStateToProps = (state) => {
   return ({
     title: state.userTester.title,
     description: state.userTester.description,

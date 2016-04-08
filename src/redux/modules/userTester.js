@@ -47,16 +47,15 @@ export const actions = {
   receiveTestResults
 }
 
-export const asyncFetchTestById = testId => {
-  return dispatch => {
+export const asyncFetchTestById = (testId) => {
+  return (dispatch) => {
     return new Promise((resolve) => {
-      fetch('http://swarm1.weperk.com/tests/' + testId).then(response => {
-      // fetch("http://www.mocky.io/v2/57074be4110000a514e94599").then(response => {
+      fetch('http://swarm1.weperk.com/tests/' + testId).then((response) => {
         return response.json()
-      }).then(value => {
+      }).then((value) => {
         dispatch(receiveTest(value, testId))
         resolve()
-      }).catch(error => {
+      }).catch((error) => {
         console.log(error)
         console.log('what the hell!')
       })
@@ -69,9 +68,8 @@ export const asyncSubmitCode = (input, testId) => {
     code: input
   }
 
-  return dispatch => {
+  return (dispatch) => {
     return new Promise((resolve) => {
-
       fetch('http://swarm1.weperk.com/tests/' + testId + '/submit', {
         method: 'POST',
         headers: {
@@ -79,13 +77,13 @@ export const asyncSubmitCode = (input, testId) => {
           'Accept': 'application/json'
         },
         body: JSON.stringify(postBody)
-      }).then(response => {
-      // fetch("http://www.mocky.io/v2/57074bb4110000ab14e94598").then(response => {
+      }).then((response) => {
         return response.json()
-      }).then(value => {
+      }).then((value) => {
         dispatch(receiveTestResults(value))
         resolve()
-      }).catch(error => {
+      }).catch((error) => {
+        console.log(error)
         console.log('holy snap!')
       })
     })

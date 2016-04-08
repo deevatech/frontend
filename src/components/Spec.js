@@ -1,7 +1,7 @@
-import React from 'react'
+import React, {PropTypes} from 'react'
 
-const Spec = props => {
-  const color = status => {
+const Spec = (props) => {
+  const color = (status) => {
     if (status === 'passed') {
       return 'green'
     } else {
@@ -16,6 +16,14 @@ const Spec = props => {
       <p>Status: {props.spec.status}</p>
     </div>
   )
+}
+
+Spec.propTypes = {
+  spec: PropTypes.shape({
+    status: PropTypes.string.isRequired,
+    description: PropTypes.string.isRequired,
+    full_description: PropTypes.string.isRequired
+  })
 }
 
 export default Spec

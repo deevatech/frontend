@@ -1,22 +1,24 @@
 import React, { PropTypes } from 'react'
 import Spec from '../components/Spec'
 import { connect } from 'react-redux'
-import { bindActionCreators } from 'redux'
 
-const SpecList = props => {
+const SpecList = (props) => {
   return (
     <div>
-    <ul>
-      {props.specs.map(spec => {
-        return <li><Spec spec={spec} /></li>
-      })}
-    </ul>
+      <ul>
+        {props.specs.map((spec) => {
+          return <li><Spec spec={spec} /></li>
+        })}
+      </ul>
     </div>
   )
-
 }
 
-const mapStateToProps = state => {
+SpecList.proptypes = {
+  specs: PropTypes.arrayOf(PropTypes.object)
+}
+
+const mapStateToProps = (state) => {
   return ({
     specs: state.userTester.specs
   })
@@ -25,6 +27,3 @@ const mapStateToProps = state => {
 export default connect(
   mapStateToProps
 )(SpecList)
-
-
-

@@ -1,5 +1,5 @@
 import React from 'react'
-import { Route, IndexRoute } from 'react-router'
+import { Route } from 'react-router'
 
 import { asyncFetchTestById } from '../redux/modules/userTester'
 
@@ -12,7 +12,7 @@ import CoreLayout from 'layouts/CoreLayout/CoreLayout'
 import UserTestView from 'views/UserTestView/UserTestView'
 
 export default (store) => {
-  const fetchTest = location => {
+  const fetchTest = (location) => {
     store.dispatch(asyncFetchTestById(location.params.test_id))
   }
 
