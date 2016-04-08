@@ -8,8 +8,6 @@ export const RECEIVE_TEST = 'RECEIVE_TEST'
 export const SUBMIT_CODE_TO_TEST = 'SUBMIT_CODE_TO_TEST'
 export const RECEIVE_TEST_RESULTS = 'RECEIVE_TEST_RESULTS'
 export const WAIT_ON_RESPONSE = 'WAIT_ON_RESPONSE'
-export const TESTS_RAN = 'TESTS_RAN'
-export const EXERCISE_COMPLETED = 'EXERCISE_COMPLETED'
 export const TIME_UP = 'TIME_UP'
 
 // ------------------------------------
