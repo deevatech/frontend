@@ -14,7 +14,7 @@ function CoreLayout ({ children }) {
   return (
     <div className='page-container'>
       <div className='view-container'>
-        <img src="http://localhost:3000/deeva.png" />
+        <img src='http://localhost:3000/deeva.png' />
         {children}
       </div>
     </div>

@@ -1,15 +1,15 @@
 import React from 'react'
-import { render } from 'react-dom';
+import { render } from 'react-dom'
 import { connect } from 'react-redux'
-import ace from 'brace';
-import AceEditor from 'react-ace';
-import 'brace/mode/ruby';
-import 'brace/theme/monokai';
+import ace from 'brace'
+import AceEditor from 'react-ace'
+import 'brace/mode/ruby'
+import 'brace/theme/monokai'
 
 import { asyncSubmitCode } from '../redux/modules/userTester'
 
 const TestInterface = (props) => {
-  const editorName = "test-input-area"
+  const editorName = 'test-input-area'
 
   const onClick = () => {
     const editor = ace.edit(editorName)
@@ -19,15 +19,15 @@ const TestInterface = (props) => {
   }
 
   return (
-    <div className="problem-window" style={{float: 'left'}}>
+    <div className='problem-window' style={{float: 'left'}}>
       <AceEditor
-        mode="ruby"
-        theme="monokai"
+        mode='ruby'
+        theme='monokai'
         tabSize={2}
         fontSize={18}
         width={900}
         name={editorName}
-        highlightActiveLine={true}
+        highlightActiveLine
         value={props.inputText}
         editorProps={{$blockScrolling: true}}
       />

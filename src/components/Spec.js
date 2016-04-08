@@ -2,10 +2,10 @@ import React from 'react'
 
 const Spec = props => {
   const color = status => {
-    if (status === "passed") {
-      return "green"
+    if (status === 'passed') {
+      return 'green'
     } else {
-      return "red"
+      return 'red'
     }
   }
 

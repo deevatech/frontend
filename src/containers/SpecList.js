@@ -7,7 +7,7 @@ const SpecList = props => {
   return (
     <div>
     <ul>
-      {props.specs.map( spec => {
+      {props.specs.map(spec => {
         return <li><Spec spec={spec} /></li>
       })}
     </ul>
@@ -17,7 +17,7 @@ const SpecList = props => {
 }
 
 const mapStateToProps = state => {
-  return({
+  return ({
     specs: state.userTester.specs
   })
 }

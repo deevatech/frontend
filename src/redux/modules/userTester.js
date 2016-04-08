@@ -19,7 +19,7 @@ export const TIME_UP = 'TIME_UP'
 // DOUBLE NOTE: there is currently a bug with babel-eslint where a `space-infix-ops` error is
 // incorrectly thrown when using arrow functions, hence the oddity.
 
-export function receiveTest(testData, testId: number): Action {
+export function receiveTest (testData, testId: number): Action {
   return {
     type: RECEIVE_TEST,
     payload: testData,
@@ -27,14 +27,14 @@ export function receiveTest(testData, testId: number): Action {
   }
 }
 
-export function submitCodeToTest(code: string = ''): Action {
+export function submitCodeToTest (code: string = ''): Action {
   return {
     type: SUBMIT_CODE_TO_TEST,
     payload: code
   }
 }
 
-export function receiveTestResults(results) {
+export function receiveTestResults (results) {
   return {
     type: RECEIVE_TEST_RESULTS,
     results: results
@@ -50,7 +50,7 @@ export const actions = {
 export const asyncFetchTestById = testId => {
   return dispatch => {
     return new Promise((resolve) => {
-      fetch("http://swarm1.weperk.com/tests/" + testId).then(response => {
+      fetch('http://swarm1.weperk.com/tests/' + testId).then(response => {
       // fetch("http://www.mocky.io/v2/57074be4110000a514e94599").then(response => {
         return response.json()
       }).then(value => {
@@ -58,7 +58,7 @@ export const asyncFetchTestById = testId => {
         resolve()
       }).catch(error => {
         console.log(error)
-        console.log("what the hell!")
+        console.log('what the hell!')
       })
     })
   }
@@ -72,7 +72,7 @@ export const asyncSubmitCode = (input, testId) => {
   return dispatch => {
     return new Promise((resolve) => {
 
-      fetch("http://swarm1.weperk.com/tests/" + testId + "/submit", {
+      fetch('http://swarm1.weperk.com/tests/' + testId + '/submit', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -86,7 +86,7 @@ export const asyncSubmitCode = (input, testId) => {
         dispatch(receiveTestResults(value))
         resolve()
       }).catch(error => {
-        console.log("holy snap!")
+        console.log('holy snap!')
       })
     })
   }
@@ -119,10 +119,10 @@ const ACTION_HANDLERS = {
 const initialState = {
   editorContent: {
     id: 0,
-    title: "",
-    description: "",
-    language: "",
-    source: ""
+    title: '',
+    description: '',
+    language: '',
+    source: ''
   },
   specs: []
 }

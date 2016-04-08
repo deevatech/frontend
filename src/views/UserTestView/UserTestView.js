@@ -15,13 +15,13 @@ export class UserTest extends React.Component {
 
   render () {
     return (
-      <div data-test-id={this.props.params.test_id} className="test-interface">
+      <div data-test-id={this.props.params.test_id} className='test-interface'>
         <UserProblem
-          className="problem-container"
+          className='problem-container'
           editorText={this.props.code}
         />
         <SpecList
-          className="spec-container"
+          className='spec-container'
           specs={this.props.specs}
         />
       </div>
