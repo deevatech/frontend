@@ -8,13 +8,14 @@ import 'brace/theme/monokai';
 
 import { asyncSubmitCode } from '../redux/modules/userTester'
 
-const TestInterface = ({ inputText, dispatch}) => {
+const TestInterface = (props) => {
   const editorName = "test-input-area"
 
   const onClick = () => {
     const editor = ace.edit(editorName)
     const source = editor.getSession().getValue()
-    dispatch(asyncSubmitCode(source))
+    const testId = document.getElementsByClassName('test-interface')[0].dataset.testId
+    props.dispatch(asyncSubmitCode(source, testId))
   }
 
   return (
@@ -25,7 +26,7 @@ const TestInterface = ({ inputText, dispatch}) => {
         tabSize={2}
         name={editorName}
         highlightActiveLine={true}
-        value={inputText}
+        value={props.inputText}
         editorProps={{$blockScrolling: true}}
       />
       <button onClick={onClick}>Submit</button>

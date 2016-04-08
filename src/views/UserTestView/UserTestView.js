@@ -15,7 +15,7 @@ export class UserTest extends React.Component {
 
   render () {
     return (
-      <div className="test-interface">
+      <div data-test-id={this.props.params.test_id} className="test-interface">
         <UserProblem
           editorText={this.props.code}
         />

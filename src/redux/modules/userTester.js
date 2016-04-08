@@ -66,14 +66,15 @@ export const asyncFetchTestById = testId => {
   }
 }
 
-export const asyncSubmitCode = input => {
+export const asyncSubmitCode = (input, testId) => {
   const postBody = {
     code: input
   }
 
   return dispatch => {
     return new Promise((resolve) => {
-      fetch("http://swarm1.weperk.com/tests/1/submit", {
+
+      fetch("http://swarm1.weperk.com/tests/" + testId + "/submit", {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
