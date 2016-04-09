@@ -13,6 +13,7 @@ const TestInterface = (props) => {
   const onClick = () => {
     const editor = ace.edit(editorName)
     const source = editor.getSession().getValue()
+    // TODO: get this from react-router instead of using this DOM-reading fix
     const testId = document.getElementsByClassName('test-interface')[0].dataset.testId
     props.dispatch(asyncSubmitCode(source, testId))
   }
@@ -36,7 +37,7 @@ const TestInterface = (props) => {
 }
 
 TestInterface.propTypes = {
-  dispatch: PropTypes.function.isRequired,
+  dispatch: PropTypes.func.isRequired,
   inputText: PropTypes.string.isRequired
 }
 

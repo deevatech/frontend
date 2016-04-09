@@ -47,9 +47,9 @@ export const actions = {
   receiveTestResults
 }
 
-export const asyncFetchTestById = (testId: number): Function => {
-  return (dispatch: function): Promise => {
-    return new Promise((resolve: function) => {
+export const asyncFetchTestById = (testId) => {
+  return (dispatch) => {
+    return new Promise((resolve) => {
       fetch('http://swarm1.weperk.com/tests/' + testId).then((response) => {
         return response.json()
       }).then((value) => {
@@ -63,13 +63,13 @@ export const asyncFetchTestById = (testId: number): Function => {
   }
 }
 
-export const asyncSubmitCode = (input: string, testId: string): Function => {
+export const asyncSubmitCode = (input, testId) => {
   const postBody = {
     code: input
   }
 
-  return (dispatch: function): Promise => {
-    return new Promise((resolve: function) => {
+  return (dispatch) => {
+    return new Promise((resolve) => {
       fetch('http://swarm1.weperk.com/tests/' + testId + '/submit', {
         method: 'POST',
         headers: {
